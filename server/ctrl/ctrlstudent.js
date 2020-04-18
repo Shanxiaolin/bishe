@@ -14,6 +14,31 @@ exports.allinfo = async() => {
 
 
 
+// 登陆验证
+exports.loginfo = async (req) => {
+    let {
+        id
+    } = req.query
+    let {
+        password
+    } = req.query
+    let response = await modules.Student.findAll({
+        attributes: {
+            exclude: ['id']
+        },
+        where: {
+            [Op.and]: [{
+                ["s-id"]: id
+            }, {
+                ["s-pwd"]: password
+            }]
+        }
+    })
+    return response
+}
+
+
+
 // 查询除了密码和token的信息
 exports.publicinfo = async(req) => {
     let {

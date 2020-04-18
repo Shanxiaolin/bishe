@@ -15,6 +15,31 @@ exports.allinfo = async () => {
 
 
 
+// 登陆验证
+exports.loginfo = async (req) => {
+    let {
+        id
+    } = req.query
+    let {
+        password
+    } = req.query
+    let response = await modules.Teacher.findAll({
+        attributes: {
+            exclude: ['id']
+        },
+        where: {
+            [Op.and]: [{
+                ["t-id"]: id
+            }, {
+                ["t-pwd"]: password
+            }]
+        }
+    })
+    return response
+}
+
+
+
 // 查询除了密码和token的信息
 exports.publicinfo = async (req) => {
     let {
@@ -60,9 +85,10 @@ exports.updatetoken = async (req) => {
         id
     } = req.body;
     let response = await modules.Teacher.update({
-        ["t-token"]: token},{
+        ["t-token"]: token
+    }, {
         where: {
-         ["t-id"]:id  
+            ["t-id"]: id
         }
     });
     return response

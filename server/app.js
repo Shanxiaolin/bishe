@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-
+var indexRouter = require('./routes/index')
 var teacherRouter = require('./routes/teacher');
 var studentRouter = require('./routes/student');
 var worktestRouter = require('./routes/worktest');
@@ -30,6 +30,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // 注册路由。
+app.use(indexRouter);
 app.use(teacherRouter);
 app.use(studentRouter);
 app.use(worktestRouter);
