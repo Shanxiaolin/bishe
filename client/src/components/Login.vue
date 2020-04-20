@@ -16,7 +16,7 @@
         </label>
         <br />
         <a-button :class="{btn:isbtn}" @click="login()">登录</a-button>
-        <a href style="position:absolute;bottom:2px;right:10px">忘记密码</a>
+        <a href="http://localhost:8081/forgetpwd" style="position:absolute;bottom:2px;right:10px">忘记密码</a>
       </card>
     </div>
     <router-view></router-view>
@@ -48,8 +48,15 @@ export default {
         )
         .then(res => {
           if (res.data == 0) {
-            this.$router.push("/pwd");
+            if(this.type==1){
+              this.$router.push("/admin");
+            }
+            else if(this.type==2){
+              this.$router.push("/teacher");
+            }
+            else this.$router.push("/student");
           }
+          else alert("信息有误")
         })
         .catch(err => {
           alert(err);
