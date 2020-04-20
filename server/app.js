@@ -13,6 +13,22 @@ var labRouter = require('./routes/lab');
 
 var app = express();
 
+
+//设置跨域访问
+app.all('*', function (req, response, next) {
+  //设置允许跨域的域名，*代表允许任意域名跨域
+  response.header("Access-Control-Allow-Origin", "*");
+  //允许的header类型
+  response.header("Access-Control-Allow-Headers", "X-Requested-With");
+  //跨域允许的请求方式
+  response.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+  //设置响应头信息
+  response.header("X-Powered-By", ' 3.2.1')
+  response.header("Content-Type", "application/json;charset=utf-8");
+  next();
+});
+
+
 // 设置viewsu文件夹为存放视图文件的目录，即存放模板文件的地方;__dirname为全局变量，存储当前正在执行的脚本所在的目录
 app.set('views', path.join(__dirname, 'views'));
 // 设置试图模板引擎为jade
@@ -23,7 +39,9 @@ app.use(logger('dev'));
 // 加载解析json中间件
 app.use(express.json());
 // 加载解析urlencoded请求体的中间件。
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+  extended: false
+}));
 // 加载解析cookie的中间件。
 app.use(cookieParser());
 // 设置public文件为存放静态文件的目录。
@@ -38,12 +56,12 @@ app.use(adminRouter);
 app.use(labRouter);
 
 // 由于err没有404错误提示，所以需要单独设计一个模块
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
