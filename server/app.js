@@ -18,13 +18,13 @@ var app = express();
 app.all('*', function (req, response, next) {
   //设置允许跨域的域名，*代表允许任意域名跨域
   response.header("Access-Control-Allow-Origin", "*");
-  //允许的header类型
-  response.header("Access-Control-Allow-Headers", "X-Requested-With");
+  //设置header里边的字段，必须包含下面的两种
+  response.header("Access-Control-Allow-Headers", "X-Requested-With,Content-Type");
   //跨域允许的请求方式
   response.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
   //设置响应头信息
-  response.header("X-Powered-By", ' 3.2.1')
-  response.header("Content-Type", "application/json;charset=utf-8");
+   
+  response.header("Content-Type", "application/json");
   next();
 });
 
