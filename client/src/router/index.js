@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from '@/components/Login'
-import ForgetPwd from '@/components/ForgetPwd'
+import Login from '@/views/Login'
+import ForgetPwd from '@/views/ForgetPwd'
 import UpdatePwd from '@/components/UpdatePwd'
-import Student from '@/components/Student'
-import Teacher from '@/components/Teacher'
-import Admin from '@/components/Admin'
+import Student from '@/views/Student'
+import Teacher from '@/views/Teacher'
+import Admin from '@/views/Admin'
+import Token from '@/components/Token'
+import Test from '@/components/Test'
 
 Vue.use(Router)
 
@@ -21,10 +23,6 @@ export default new Router({
       component:ForgetPwd,
     },
     {
-      path: '/updatepwd',
-      component: UpdatePwd
-    },
-    {
       path: '/student',
       component: Student
     },
@@ -34,7 +32,21 @@ export default new Router({
     },
     {
       path: '/admin',
-      component: Admin
+      component: Admin,
+      children:[
+        {
+          path: '/test',
+          component: Test
+        },
+        {
+          path: '/updatepwd',
+          component: UpdatePwd
+        },
+      ]
+    },
+    {
+      path: '/token',
+      component: Token
     }
   ]
 })
