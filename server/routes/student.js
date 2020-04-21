@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var modules = require("../models")
 var ctrlstudent = require("../ctrl/ctrlstudent")
 /* GET users listing. */
 // 查询学生所有信息    可用
