@@ -13,16 +13,14 @@ var labRouter = require('./routes/lab');
 
 var app = express();
 
-var url="http://localhost:8081,http://localhost:8081/forgetpwd,http://localhost:8081/updatepwd,http://localhost:8081/student,http://localhost:8081/teacher,http://localhost:8081/admin"
+var url="http://localhost:8081"
 
 // 设置跨域访问
 app.all('*', function (req, response, next) {
   let ol = url.split(",")
-  let check = req.headers.origin
-// indexOf(req.headers.origin)这种写法不支持
-  if (ol.indexOf(check>= 0)) {
+  if (ol.indexOf(req.headers.origin)>= 0) {
     //设置允许跨域的域名，*代表允许任意域名跨域
-    response.header("Access-Control-Allow-Origin", check);
+    response.header("Access-Control-Allow-Origin", req.headers.origin);
     //设置header里边的字段，必须包含下面的两种
     response.header("Access-Control-Allow-Headers", "X-Requested-With,Content-Type");
     //跨域允许的请求方式
