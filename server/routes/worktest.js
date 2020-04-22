@@ -25,7 +25,7 @@ router.get('/worktest/id', async function (req, res, next) {
 
 
 // 通过专业，课程，年级，班号检索信息  可用
-router.get('/worktest/scgc', async function (req, res, next) {
+router.post('/worktest/scgc', async function (req, res, next) {
   let response = await ctrlworktest.pointinfo(req)
   if (response.length > 0) {
     res.json({response});

@@ -18,20 +18,17 @@
  exports.pointinfo = async (req) => {
      let {
          subject
-     } = req.query
+     } = req.body
      let {
          course
-     } = req.query
+     } = req.body
      let {
          grade
-     } = req.query
+     } = req.body
      let {
          classes
-     } = req.query
+     } = req.body
      let response = await modules.Worktest.findAll({
-             attributes: {
-                 exclude: ['id']
-             },
              where: {
                  [Op.and]: [{
                          ["s-subject"]: subject
@@ -121,6 +118,8 @@ exports.mark = async (req) => {
         where: {
         "id": id
         }
-    });
+    }).catch(err=>{
+        throw err
+    })
     return response
 }
