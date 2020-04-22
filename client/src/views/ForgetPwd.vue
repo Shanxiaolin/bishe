@@ -33,7 +33,6 @@ export default {
   methods: {
     login() {
       var data = { id: this.id, password: this.pwd, token: this.token };
-      console.log(typeof data);
       if (this.type == 2) {
         this.$axios({
           url: "http://localhost:3000/teacher/forgetpwd",

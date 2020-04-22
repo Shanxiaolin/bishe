@@ -8,7 +8,7 @@
         active-text-color="#ffd04b"
       >
         <el-menu-item style="display:inline;padding-right:535px;font-size:20px">功能概览</el-menu-item>
-        <el-menu-item style="display:inline;   ">{{message}}！欢迎来到大连海事大学实验室平台管理系统</el-menu-item>
+        <el-menu-item style="display:inline;   ">{{adminmessage}}！欢迎来到大连海事大学实验室平台管理系统</el-menu-item>
       </el-menu>
     </el-header>
 
@@ -25,17 +25,11 @@
             text-color="#fff"
             active-text-color="#ffd04b"
           >
-            <el-menu-item index="/test" style="width:200px">
-              <template slot="title">
-                <i class="el-icon-user"></i>
-                <span>个人中心</span>
-              </template>
-            </el-menu-item>
             <el-menu-item index="/updatepwd" style="width:200px">
               <i class="el-icon-edit"></i>
               <span slot="title">修改密码</span>
             </el-menu-item>
-            <el-menu-item index="3" style="width:200px">
+            <el-menu-item index="/upwork" style="width:200px">
               <i class="el-icon-s-promotion"></i>
               <span slot="title">提交作业</span>
             </el-menu-item>
@@ -64,21 +58,27 @@
 <script>
 import tempstore from '../tempstore'
 
-export default {
+var temp
+export default{
   name: "Admin",
   components: {},
   data() {
     return {
-      message:''
+      adminmessage:'您好',
     };
   },
-  beforeCreate:function() {
+  beforeCreate(){
     tempstore.$on('tempid',function(argument){
-      this.message = argument
-      console.log(this.message)
+      temp = argument
     })
+  },
+  created(){
+    this.message=temp
   }
 };
+ 
+
+
 </script>
 
 <style>

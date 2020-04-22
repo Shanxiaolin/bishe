@@ -30,7 +30,6 @@ export default {
     login() {
       // 要用父传子来拿到ID
       var data = { id: this.id, password: this.pwd };
-      console.log(typeof data);
       if (this.type == 2) {
         this.$axios({
           url: "http://localhost:3000/teacher/pwd",

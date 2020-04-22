@@ -7,7 +7,9 @@ import Student from '@/views/Student'
 import Teacher from '@/views/Teacher'
 import Admin from '@/views/Admin'
 import Token from '@/components/Token'
-import Test from '@/components/Test'
+import Upwork from '@/components/Upwork'
+import SearchMark from '@/components/SearchMark'
+import SearchLab from '@/components/SearchLab'
 
 Vue.use(Router)
 
@@ -24,7 +26,25 @@ export default new Router({
     },
     {
       path: '/student',
-      component: Student
+      component: Student,
+      children:[
+        {
+          path: '/upwork',
+          component: Upwork
+        },
+        {
+          path: '/updatepwd',
+          component: UpdatePwd
+        },
+        {
+          path: '/searchmark',
+          component: SearchMark
+        },
+        {
+          path: '/searchlab',
+          component: SearchLab
+        },
+      ]
     },
     {
       path: '/teacher',
@@ -33,16 +53,6 @@ export default new Router({
     {
       path: '/admin',
       component: Admin,
-      children:[
-        {
-          path: '/test',
-          component: Test
-        },
-        {
-          path: '/updatepwd',
-          component: UpdatePwd
-        },
-      ]
     },
     {
       path: '/token',
