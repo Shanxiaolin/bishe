@@ -1,5 +1,5 @@
 <template>
-  <el-card class="box-card" style="line-height: 30px;">
+  <el-card class="box-card" style="line-height: 30px;overflow-y:auto">
     <div slot="header" class="clearfix" style="height:70px; padding:0px">
       <div style="margin-top: 15px;">
         <el-input placeholder="例如:软件工程,2016,4,C语言实训" v-model="id" class="input-with-select">
@@ -49,10 +49,9 @@ export default {
         .then(res => {
           if (res != 1) {
             //得先遍历一下res否则会报length不是属性错误
-            console.log(res);
-            console.log(res.data);
-            console.log(res.data.response);
-            console.log(res.data.response.length);
+            let a = res;
+            let b = res.data;
+            
             reqtemp = res.data.response;
             for (let i = 0; i < reqtemp.length; i++) {
               str =

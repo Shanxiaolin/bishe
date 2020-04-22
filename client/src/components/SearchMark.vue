@@ -1,5 +1,5 @@
 <template>
-  <el-card class="box-card" style="line-height: 30px;">
+  <el-card class="box-card" style="line-height: 30px;overflow-y:auto">
     <div slot="header" class="clearfix" style="height:70px; padding:0px">
       <div style="margin-top: 15px;">
         <el-input placeholder="请输入学号" v-model="id" class="input-with-select">

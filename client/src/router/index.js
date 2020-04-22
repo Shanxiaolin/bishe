@@ -10,6 +10,10 @@ import Token from '@/components/Token'
 import Upwork from '@/components/Upwork'
 import SearchMark from '@/components/SearchMark'
 import SearchLab from '@/components/SearchLab'
+import AllLab from '@/components/AllLab'
+import BookLab from '@/components/BookeLab'
+import Work from '@/components/Work'
+import SearchALLmark from '@/components/SearchALLmark'
 
 Vue.use(Router)
 
@@ -29,26 +33,49 @@ export default new Router({
       component: Student,
       children:[
         {
-          path: '/upwork',
+          path: '/student/upwork',
           component: Upwork
         },
         {
-          path: '/updatepwd',
+          path: '/student/updatepwd',
           component: UpdatePwd
         },
         {
-          path: '/searchmark',
+          path: '/student/searchmark',
           component: SearchMark
         },
         {
-          path: '/searchlab',
+          path: '/student/searchlab',
           component: SearchLab
         },
+       
       ]
     },
     {
       path: '/teacher',
-      component: Teacher
+      component: Teacher,
+      children:[
+        {
+          path: '/teacher/updatepwd',
+          component: UpdatePwd
+        },
+        {
+          path: '/teacher/alllab',
+          component: AllLab
+        },
+        {
+          path: '/teacher/booklab',
+          component: BookLab
+        },
+        {
+          path: '/teacher/work',
+          component: Work
+        },
+        {
+          path: '/teacher/searchallmark',
+          component: SearchALLmark
+        },
+      ]
     },
     {
       path: '/admin',

@@ -25,19 +25,19 @@
             text-color="#fff"
             active-text-color="#ffd04b"
           >
-            <el-menu-item index="/updatepwd" style="width:200px">
+            <el-menu-item index="/student/updatepwd" style="width:200px">
               <i class="el-icon-edit"></i>
               <span slot="title">修改密码</span>
             </el-menu-item>
-            <el-menu-item index="upwork" style="width:200px">
+            <el-menu-item index="/student/upwork" style="width:200px">
               <i class="el-icon-s-promotion"></i>
               <span slot="title">提交作业</span>
             </el-menu-item>
-            <el-menu-item index="/searchmark" style="width:200px">
+            <el-menu-item index="/student/searchmark" style="width:200px">
               <i class="el-icon-search"></i>
               <span slot="title">查询分数</span>
             </el-menu-item>
-            <el-menu-item index="/searchlab" style="width:200px">
+            <el-menu-item index="/student/searchlab" style="width:200px">
               <i class="el-icon-message-solid"></i>
               <span slot="title">实验室信息</span>
             </el-menu-item>

@@ -14,10 +14,6 @@
     </label>
     <br/>
     <el-button :class="{btn:isbtn}" @click="login()">确认修改</el-button>
-    <a
-      href="http://localhost:8081/forgetpwd"
-      style="position:absolute;bottom:2px;right:10px;text-decoration:none"
-    >忘记密码</a>
   </el-card>
 </template>
 
