@@ -10,6 +10,7 @@ var studentRouter = require('./routes/student');
 var worktestRouter = require('./routes/worktest');
 var adminRouter = require('./routes/admin');
 var labRouter = require('./routes/lab');
+var bodyParser = require('body-parser')
 
 var app = express();
 
@@ -58,6 +59,7 @@ app.use(worktestRouter);
 app.use(adminRouter);
 app.use(labRouter);
 
+app.use(bodyParser.json())
 // 由于err没有404错误提示，所以需要单独设计一个模块
 app.use(function (req, res, next) {
   next(createError(404));

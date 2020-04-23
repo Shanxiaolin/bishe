@@ -118,8 +118,6 @@ exports.mark = async (req) => {
         where: {
         "id": id
         }
-    }).catch(err=>{
-        throw err
-    })
+    }) 
     return response
 }
