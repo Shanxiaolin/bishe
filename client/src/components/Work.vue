@@ -106,7 +106,7 @@ export default {
         responses:this.response,
       };
         this.$axios({
-        url: "http://localhost:3000/worktest/scgc",
+        url: "http://localhost:3000/worktest/mark",
         method: "post",
         data: data,
         headers: {
