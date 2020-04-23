@@ -10,7 +10,7 @@
       </div>
 
       <el-table
-        :data="tablearry.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
+        :data="tablearry.filter(data => !search || data.sid.toLowerCase().includes(search.toLowerCase()))"
         style="overflow-y:auto"
       >
         <div>
@@ -115,7 +115,7 @@ export default {
         }
       })
         .then(res => {
-          if (res==0) {
+          if (res.data==0) {
               alert("操作成功");
           } else alert("操作失败");
         })
