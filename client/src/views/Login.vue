@@ -25,20 +25,19 @@
         >忘记密码</a>
       </el-card>
     </div>
-    <router-view/> 
+    <router-view />
   </div>
 </template>
 
 
 <script>
-
-import tempstore from '../tempstore'
+import tempstore from "../tempstore";
 // 局部注册
 export default {
   name: "Login",
   methods: {
     login() {
-      tempstore.$emit('tempid',this.id)
+      tempstore.$emit("tempid", this.id);
       this.$axios
         .get(
           "http://localhost:3000/login?id=" +
@@ -53,8 +52,14 @@ export default {
             if (this.type == 1) {
               this.$router.push("/admin");
             } else if (this.type == 2) {
+              var storage = window.sessionStorage;
+              storage.setItem("auth", '1');
               this.$router.push("/teacher");
-            } else this.$router.push("/student");
+            } else {
+              var storage = window.sessionStorage;
+              storage.setItem("auth", '1');
+              this.$router.push("/student");
+            }
           } else alert("信息有误");
         })
         .catch(err => {

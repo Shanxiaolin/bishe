@@ -18,21 +18,22 @@ import SearchALLmark from '@/components/SearchALLmark'
 Vue.use(Router)
 
 export default new Router({
-  mode:'history',
-  routes: [
-    {
+  mode: 'history',
+  routes: [{
       path: '/',
       component: Login
     },
     {
-      path:'/forgetpwd',
-      component:ForgetPwd,
+      path: '/forgetpwd',
+      component: ForgetPwd,
     },
     {
       path: '/student',
       component: Student,
-      children:[
-        {
+      meta: {
+        requireAuth:true, // 添加该字段，表示进入这个路由是需要登录的
+      },
+      children: [{
           path: '/student/upwork',
           component: Upwork
         },
@@ -48,14 +49,16 @@ export default new Router({
           path: '/student/searchlab',
           component: SearchLab
         },
-       
+
       ]
     },
     {
       path: '/teacher',
       component: Teacher,
-      children:[
-        {
+      meta: {
+        requireAuth:true, // 添加该字段，表示进入这个路由是需要登录的
+      },
+      children: [{
           path: '/teacher/updatepwd',
           component: UpdatePwd
         },
