@@ -54,9 +54,6 @@
  
 
 <script>
-import tempstore from "../tempstore";
-
-var temp;
 export default {
   name: "Student",
   components: {},
@@ -64,15 +61,10 @@ export default {
     return {
       message: "您好",
     };
-  },
-  beforeCreate() {
-    tempstore.$on("tempid", function(argument) {
-      temp = argument;
-    });
-  },
+  }, 
   created() {
-    this.message = temp;
-  }
+     this.message=window.sessionStorage.userid
+  },
 };
 </script>
 

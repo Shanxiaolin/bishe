@@ -31,13 +31,14 @@
 
 
 <script>
-import tempstore from "../tempstore";
+import vue from 'vue'
+ 
 // 局部注册
 export default {
   name: "Login",
   methods: {
     login() {
-      tempstore.$emit("tempid", this.id);
+      window.sessionStorage.userid=this.id
       this.$axios
         .get(
           "http://localhost:3000/login?id=" +

@@ -58,9 +58,7 @@
  
 
 <script>
-import tempstore from "../tempstore";
-
-var temp;
+ 
 export default {
   name: "Teacher",
   components: {},
@@ -70,12 +68,10 @@ export default {
     };
   },
   beforeCreate() {
-    tempstore.$on("tempid", function(argument) {
-      temp = argument;
-    });
+   
   },
   created() {
-    this.message = temp;
+    
   }
 };
 </script>
