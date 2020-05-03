@@ -87,6 +87,7 @@
     let {
         course
     } = req.body
+  
     let response = await modules.Worktest.create({
         ["s-id"]:id,
         ["s-class"]:classes,
