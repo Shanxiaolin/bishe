@@ -8,7 +8,7 @@
         active-text-color="#ffd04b"
       >
         <el-menu-item style="display:inline;padding-right:595px;font-size:20px">功能概览</el-menu-item>
-        <el-menu-item style="display:inline;   ">{{message}}！欢迎来到大连海事大学实验室平台管理系统</el-menu-item>
+        <el-menu-item style="display:inline;">{{message}}！欢迎来到大连海事大学实验室平台管理系统</el-menu-item>
       </el-menu>
     </el-header>
 
@@ -41,7 +41,7 @@
               <i class="el-icon-message-solid"></i>
               <span slot="title">实验室信息</span>
             </el-menu-item>
-             <el-menu-item index="/teacher/searchallmark" style="width:200px">
+            <el-menu-item index="/teacher/searchallmark" style="width:200px">
               <i class="el-icon-search"></i>
               <span slot="title">查询分数</span>
             </el-menu-item>
@@ -58,20 +58,16 @@
  
 
 <script>
- 
 export default {
   name: "Teacher",
   components: {},
   data() {
     return {
-      message: "您好",
+      message: "您好"
     };
   },
-  beforeCreate() {
-   
-  },
   created() {
-    
+     this.message = window.sessionStorage.userid;
   }
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <el-card class="box-card" style="width:618px;height:309px;margin-top:100px;line-height: 30px;">
     <div slot="header" style="height:34.4px; padding:0px">
-      <p style="font-size:20px;font-weight:200;padding:0;line-height:30px">修改密码</p>
+      <p style="font-size:2rem;font-weight:400;padding:0;line-height:30px">修改密码</p>
     </div>
     <el-input :class="{in:true}" placeholder="账号" v-model="id" clearable></el-input>
     <el-input :class="{in:true}" placeholder="密码" show-password v-model="pwd"></el-input>
@@ -21,7 +21,7 @@
 // 局部注册
 export default {
   name: "UpdatePwd",
-  components: {},
+  
   methods: {
     login() {
       // 要用父传子来拿到ID
@@ -72,6 +72,7 @@ export default {
       isbtn: true,
       iscard: true,
       id: "",
+      type:'',
       pwd: ""
     };
   }

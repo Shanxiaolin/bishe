@@ -51,6 +51,8 @@ export default {
         .then(res => {
           if (res.data == 0) {
             if (this.type == 1) {
+              var storage = window.sessionStorage;
+              storage.setItem("auth", '1');
               this.$router.push("/admin");
             } else if (this.type == 2) {
               var storage = window.sessionStorage;

@@ -6,6 +6,8 @@ import UpdatePwd from '@/components/UpdatePwd'
 import Student from '@/views/Student'
 import Teacher from '@/views/Teacher'
 import Admin from '@/views/Admin'
+import UploadStudent from '@/components/UploadStudent'
+import UploadTeacher from '@/components/UploadTeacher'
 import Token from '@/components/Token'
 import Upwork from '@/components/Upwork'
 import SearchMark from '@/components/SearchMark'
@@ -31,7 +33,7 @@ export default new Router({
       path: '/student',
       component: Student,
       meta: {
-        requireAuth:true, // 添加该字段，表示进入这个路由是需要登录的
+        requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
       },
       children: [{
           path: '/student/upwork',
@@ -49,14 +51,17 @@ export default new Router({
           path: '/student/searchlab',
           component: SearchLab
         },
-
+        {
+          path: '/token',
+          component: Token
+        }    
       ]
     },
     {
       path: '/teacher',
       component: Teacher,
       meta: {
-        requireAuth:true, // 添加该字段，表示进入这个路由是需要登录的
+        requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的
       },
       children: [{
           path: '/teacher/updatepwd',
@@ -78,15 +83,35 @@ export default new Router({
           path: '/teacher/searchallmark',
           component: SearchALLmark
         },
+        {
+          path: '/token',
+          component: Token
+        }    
       ]
     },
     {
       path: '/admin',
       component: Admin,
+      meta: {
+        requireAuth: true,
+      },
+      children: [{
+          path: '/admin/upstudent',
+          component: UploadStudent,
+        },
+        {
+          path: '/admin/upteacher',
+          component: UploadTeacher,
+        },
+        {
+          path: '/admin/token',
+          component: Token
+        },
+        {
+          path: '/admin/updatepwd',
+          component: UpdatePwd
+        },
+      ]
     },
-    {
-      path: '/token',
-      component: Token
-    }
   ]
 })

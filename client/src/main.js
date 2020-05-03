@@ -7,7 +7,9 @@ import 'element-ui/lib/theme-chalk/index.css';
 import App from './App'
 import router from './router';
 import myrouter from './router/index';
- 
+import fs from 'file-saver'
+import XLSX from 'xlsx'
+
 // 通过路由加入mete验证是否需要开启页面拦截，在登陆时候将sessionStoryage的自定义属性auth赋值为1以此判断是否登录。
 myrouter.beforeEach((to, from, next) => {
   if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限
@@ -193,7 +195,8 @@ Vue.prototype.$message = Message;
 
 Vue.use(ElementUI);
 Vue.prototype.$axios=axios
- 
+Vue.prototype.$fs=fs
+Vue.prototype.$XLSX=XLSX
 Vue.config.productionTip = false
 
 
