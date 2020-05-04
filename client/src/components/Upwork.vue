@@ -1,25 +1,21 @@
 <template>
-  <el-card class="box-card" style="width:500px;height:560px">
+  <el-card class="box-card carda">
     <el-form ref="form" :model="form" label-width="80px">
       <el-form-item label="学号">
         <el-input v-model="id"></el-input>
       </el-form-item>
       <el-form-item label="入学年份">
-        <div class="container">
-          <div class="block">
-            <el-date-picker
-              v-model="grade"
-              type="year"
-              format="yyyy"
-              value-format="yyyy"
-              placeholder="选择年"
-              style="width:380px"
-            ></el-date-picker>
-          </div>
-        </div>
+          <el-date-picker
+            v-model="grade"
+            type="year"
+            format="yyyy"
+            value-format="yyyy"
+            placeholder="选择年"
+            style="width:440px"
+          ></el-date-picker>
       </el-form-item>
       <el-form-item label="班级">
-        <el-select v-model="classes" placeholder="请选择" style="width:380px">
+        <el-select v-model="classes" placeholder="请选择" class="select-width">
           <el-option
             v-for="item in classname"
             :key="item.value"
@@ -29,7 +25,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="专业">
-        <el-select v-model="subject" placeholder="请选择" style="width:380px">
+        <el-select v-model="subject" placeholder="请选择" class="select-width">
           <el-option
             v-for="item in subjectname"
             :key="item.value"
@@ -39,7 +35,7 @@
         </el-select>
       </el-form-item>
       <el-form-item label="课程名称">
-        <el-select v-model="course" placeholder="请选择" style="width:380px">
+        <el-select v-model="course" placeholder="请选择" class="select-width">
           <el-option
             v-for="item in coursename"
             :key="item.value"
@@ -52,11 +48,7 @@
         <el-input type="textarea" v-model="message"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button
-          type="primary"
-          @click="onSubmit"
-          style="width:380px;background-color: #86ce2f"
-        >立即创建</el-button>
+        <el-button type="success" @click="onSubmit" size class=".btn">立即创建</el-button>
       </el-form-item>
     </el-form>
   </el-card>
@@ -92,12 +84,12 @@ export default {
       ],
       subjectname: [
         {
-          value: "智能",
-          label: "智能"
+          value: "智能科学与技术",
+          label: "智能科学与技术"
         },
         {
-          value: "计算机",
-          label: "计算机"
+          value: "计算机科学与技术",
+          label: "计算机科学与技术"
         },
         {
           value: "软件工程",
@@ -165,3 +157,14 @@ export default {
   }
 };
 </script>
+<style>
+.carda {
+  width: 80%;
+  line-height: 40px;
+  margin: 0 auto;
+  margin-top: 5%;
+}
+.select-width {
+  width: 100%;
+}
+</style>

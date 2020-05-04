@@ -25,20 +25,24 @@
             text-color="#fff"
             active-text-color="#ffd04b"
           >
-            <el-menu-item index="/student/updatepwd" style="width:200px">
+            <el-menu-item index="/student/updatepwd" >
               <i class="icon-size el-icon-edit"></i>
               <span slot="title">修改密码</span>
             </el-menu-item>
-            <el-menu-item index="/student/upwork" style="width:200px">
+             <el-menu-item index="/student/token" >
+              <i class="icon-size el-icon-edit"></i>
+              <span slot="title">修改TOKNE</span>
+            </el-menu-item>
+            <el-menu-item index="/student/upwork" >
               <i class="icon-size el-icon-s-promotion"></i>
               <span slot="title">提交作业</span>
             </el-menu-item>
-            <el-menu-item index="/student/searchmark" style="width:200px">
+            <el-menu-item index="/student/searchmark" >
               <i class="icon-size el-icon-search"></i>
               <span slot="title">查询分数</span>
             </el-menu-item>
-            <el-menu-item index="/student/searchlab" style="width:200px">
-              <i class="el-icon-message-solid"></i>
+            <el-menu-item index="/student/searchlab" >
+              <i class="icon-size el-icon-message-solid"></i>
               <span slot="title">实验室信息</span>
             </el-menu-item>
           </el-menu>
@@ -181,6 +185,10 @@ body > .el-container {
   }
   .card {
     width: 100%;
+  }
+  .carda{
+    height:90%;
+    line-height:20px;
   }
   .btn {
     font-size:0.8rem
