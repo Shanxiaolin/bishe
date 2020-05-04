@@ -8,7 +8,7 @@
         active-text-color="#ffd04b"
       >
         <el-menu-item class="left-el-menu-item">功能概览</el-menu-item>
-        <el-menu-item class="right-el-menu-item">{{message}}！欢迎来到大连海事大学实验室平台管理系统</el-menu-item>
+        <el-menu-item class="right-el-menu-item">{{message}}！管理员欢迎来到大连海事大学实验室平台管理系统</el-menu-item>
       </el-menu>
     </el-header>
     <el-container class="my-body">
@@ -214,22 +214,22 @@ body > .el-container {
 /* 台式电脑显示器屏幕字体大小 */
 @media screen and (min-width: 1024px) {
   .el-menu-item {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
   .left-el-menu-item {
     font-size: 1.5rem;
   }
   .right-el-menu-item {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
   .icon-size {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
   }
   .span {
     font-size: 1.5rem;
   }
   .label-style {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 }
 </style>

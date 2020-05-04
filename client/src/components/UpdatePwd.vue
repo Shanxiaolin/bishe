@@ -1,15 +1,15 @@
 <template>
-  <el-card class="box-card" style="width:618px;height:309px;margin-top:100px;line-height: 30px;">
-    <div slot="header" style="height:34.4px; padding:0px">
-      <p style="font-size:2rem;font-weight:400;padding:0;line-height:30px">修改密码</p>
+  <el-card class="box-card card"  >
+    <div slot="header" class="clearfix">
+      <span  class="span">修改密码</span>
     </div>
     <el-input :class="{in:true}" placeholder="账号" v-model="id" clearable></el-input>
     <el-input :class="{in:true}" placeholder="密码" show-password v-model="pwd"></el-input>
     <br/>
-    <label style="margin-right:20px">
+    <label class="label-style">
       <input type="radio" name="type" value="2" v-model="type" />教师
     </label>
-    <label style="margin-right:20px">
+    <label class="label-style">
       <input type="radio" name="type" value="3" v-model="type" />学生
     </label>
     <br/>
@@ -82,16 +82,26 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .in {
-  width: 300px;
-  margin-top:5px;
+  margin-bottom: 5px;
+  width: 80%;
 }
 .btn {
+  margin-top: 5px;
   background-color: #86ce2f !important;
-  margin-top:10px;
-  width: 300px;
+  width: 80%;
 }
-.el-card__header {
-  padding: 9px 10px;
+.span {
+  font-weight: 400;
+  line-height: 30px;
 }
- 
+.card {
+  height: 50%;
+  line-height: 30px;
+  margin: 0 auto;
+  margin-top:10%;
+}
+.label-style{
+  margin-right:20px;
+  vertical-align:center
+}
 </style>

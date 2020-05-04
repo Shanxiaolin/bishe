@@ -1,19 +1,21 @@
  <template>
-  <el-card class="box-card" style="line-height: 60px;overflow-y:auto;width:20%;text-align:center">
+  <el-card class="box-card card">
     <el-upload
       class="upload-demo"
       action
+      :on-exceed="exceedFile"
       :on-change="handleChange"
-      :show-file-list="false"
+      :show-file-list="true"
       :on-remove="handleRemove"
       :file-list="fileList"
       :limit="limitNum"
       accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
       :auto-upload="false"
     >
-      <el-button size="small" type="primary">本地上传</el-button>
+      <el-button size="small" type="primary">选择学生文件</el-button>
       <div slot="tip" class="el-upload__tip">注：只 能 上 传 xlsx / xls 文 件</div>
     </el-upload>
+    <el-button size="small" type="primary" @click="importfxx">上传</el-button>
   </el-card>
 </template>
 
@@ -21,18 +23,20 @@
 var elsxname = [];
 var elsxid = [];
 var elsxtoken = [];
-var check = 0;
+ 
 export default {
   data() {
     return {
+      
       limitNum: 1, // 上传excell时，同时允许上传的最大数
       fileList: [] // excel文件列表
     };
   },
   methods: {
-    changeCheck() {
-      check = 1;
-    },
+    // 限制个数
+     exceedFile(files, fileList) {
+        this.$message.warning(`只能选择 ${this.limitNum} 个文件，当前共选择了 ${files.length + fileList.length} 个`);
+      },
     // excel表上传
     handleChange(file, fileList) {
       this.fileTemp = file.raw;
@@ -43,7 +47,7 @@ export default {
             "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" ||
           this.fileTemp.type == "application/vnd.ms-excel"
         ) {
-          this.importfxx(this.fileTemp);
+          
         } else {
           this.$message({
             type: "warning",
@@ -61,7 +65,9 @@ export default {
     handleRemove(file, fileList) {
       this.fileTemp = null;
     },
-    importfxx(obj) {
+    importfxx() {
+      console.log(1)
+      var obj = this.fileTemp
       let _this = this;
       // 通过DOM取文件数据
       this.file = obj;
@@ -94,7 +100,7 @@ export default {
           }
           outdata = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]); //outdata就是读取excel内容之后输出的东西
           this.da = [...outdata];
-
+          
           this.da.map(v => {
             // 这里在全局声明eid会出问题，elsxid都是第二个id,这个就是浅拷贝的问题
             let eid = {};
@@ -102,13 +108,13 @@ export default {
             let ename = {};
             ename.name = v["NAME"]; //IP是表的标题
             eid.id = v["ID"];
-
+            
             etoken.token = v["TOKEN"];
             elsxid.push(eid);
             elsxname.push(ename);
             elsxtoken.push(etoken);
           });
-          _this.toserver(elsxid, elsxname, elsxtoken);
+            _this.toserver(elsxid, elsxname, elsxtoken);
         };
         reader.readAsArrayBuffer(f);
       };
@@ -120,13 +126,14 @@ export default {
     },
     // 上传内容到后台
     toserver(elsxid, elsxname, elsxtoken) {
+      console.log(2)
       var data = {
         id: elsxid,
         name: elsxname,
         token: elsxtoken
       };
       this.$axios({
-        url: "http://localhost:3000/admin/student",
+        url: "http://localhost:3000/admin/upstudent",
         method: "post",
         data: data,
         headers: {
@@ -135,7 +142,7 @@ export default {
         }
       })
         .then(res => {
-          console.log(res);
+          console.log(res)
           if (res.data == 0) {
             alert("上传成功");
           } else alert("上传失败");
@@ -149,6 +156,12 @@ export default {
 </script>
 
 <style scoped>
+.card {
+  height: 50%;
+  line-height: 30px;
+  margin: 0 auto;
+  margin-top:10%;
+}
 </style>
 
 
