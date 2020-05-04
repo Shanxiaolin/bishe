@@ -137,7 +137,7 @@ export default {
         course: this.course
       };
       this.$axios({
-        url: "http://localhost:3000/worktest/work",
+        url: "http://192.168.0.107:3001/worktest/work",
         method: "post",
         data: data,
         headers: {

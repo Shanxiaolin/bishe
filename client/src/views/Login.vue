@@ -20,7 +20,7 @@
         <br />
         <el-button :class="{btn:isbtn}" @click="login()">登录</el-button>
         <a
-          href="http://localhost:8081/forgetpwd"
+          href="http://192.168.0.107:3001/forgetpwd"
           style="position:absolute;bottom:2px;right:10px;text-decoration:none"
         >忘记密码</a>
       </el-card>
@@ -41,7 +41,7 @@ export default {
       window.sessionStorage.userid=this.id
       this.$axios
         .get(
-          "http://localhost:3000/login?id=" +
+          "http://192.168.0.107:3001/login?id=" +
             this.id +
             "&password=" +
             this.pwd +

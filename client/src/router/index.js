@@ -21,6 +21,7 @@ Vue.use(Router)
 
 export default new Router({
   mode: 'history',
+  base:'/dist/', //打包时候添加的，因为采用history
   routes: [{
       path: '/',
       component: Login

@@ -38,7 +38,7 @@ export default {
       };
 
       this.$axios({
-        url: "http://localhost:3000/lab/scgc",
+        url: "http://192.168.0.107:3001/lab/scgc",
         method: "post",
         data: data,
         headers: {

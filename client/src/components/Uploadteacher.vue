@@ -132,7 +132,7 @@ export default {
         token: elsxtoken
       };
       this.$axios({
-        url: "http://localhost:3000/admin/upteacher",
+        url: "http://192.168.0.107:3001/admin/upteacher",
         method: "post",
         data: data,
         headers: {
