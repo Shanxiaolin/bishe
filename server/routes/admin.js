@@ -24,7 +24,7 @@ router.post('/admin/upteacher', async function (req, res, next) {
 
 
 router.post('/admin/upstudent', async function (req, res, next) {
-    let response = await ctrladmin.upstudetn(req)
+    let response = await ctrladmin.upstudent(req)
     if (response.dataValues.id) {
         res.json("0")
       } else

@@ -25,13 +25,27 @@ exports.upstudent = async (req) => {
     var {
         token
     } = req.body
+    var {
+        subject
+    } = req.body
+    var {
+        sclass
+    } = req.body
+    var {
+        sgrade
+    } = req.body
     let array = req.body.id
     var response 
+    console.log(id[0].id)
+    console.log(id[1].id)
     await Promise.all(array.map(async (value, i, arr) => {
         var resp= await modules.Student.create({
             ["s-id"]: id[i].id,
             ["s-name"]: name[i].name,
             ["s-token"]: token[i].token,
+            ["s-subject"]:subject[i].subject,
+            ["s-class"]:sclass[i].class,
+            ["s-grade"]:sgrade[i].grade,
             ["s-type"]: 1,
             ['s-pwd']: 123456
         });

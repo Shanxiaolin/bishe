@@ -9,7 +9,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       ["s-id"]: { 
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false
       }, 
       ["s-pwd"]:{
         type: Sequelize.STRING,
