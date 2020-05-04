@@ -1,6 +1,6 @@
 <template>
-  <el-card class="box-card" style="line-height: 30px;overflow-y:auto">
-    <div slot="header" class="clearfix" style="height:70px; padding:0px">
+  <el-card class="box-card card">
+    <div slot="header" class="clearfix">
       <div style="margin-top: 15px;">
         <el-input placeholder="例如:软件工程,2016,4,C语言实训" v-model="id" class="input-with-select">
           <el-button slot="append" icon="el-icon-search" @click="search"></el-button>
@@ -51,7 +51,6 @@ export default {
             //得先遍历一下res否则会报length不是属性错误
             let a = res;
             let b = res.data;
-            
             reqtemp = res.data.response;
             for (let i = 0; i < reqtemp.length; i++) {
               str =
@@ -77,7 +76,7 @@ export default {
 
 <style>
 .text {
-  font-size: 14px;
+  font-size: 1rem;
 }
 
 .clearfix:before,
@@ -91,5 +90,14 @@ export default {
 
 .box-card {
   width: 480px;
+}
+.el-main {
+  line-height: 80px !important;
+}
+.card {
+  height: 70%;
+  line-height: 40px;
+  margin: 0 auto;
+  margin-top: 10%;
 }
 </style>

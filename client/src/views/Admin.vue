@@ -61,14 +61,7 @@ export default {
   created() {
     this.message = window.sessionStorage.userid;
   },
-  // created: function() {
-  //   // 页面开始加载时修改font-size
-  //   var html = document.getElementsByTagName("html")[0];
-  //   var oWidth =
-  //     document.body.clientWidth || document.documentElement.clientWidth;
-  //   // 这里的100是指设计图的大小
-  //   html.style.fontSize = oWidth / 100 + "px";
-  // }
+  
 };
 </script>
 

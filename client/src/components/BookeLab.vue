@@ -85,20 +85,16 @@ export default {
         {
           value: "4",
           label: "4"
-        },
-        {
-          value: "5",
-          label: "5"
         }
       ],
       subjectname: [
         {
-          value: "智能",
-          label: "智能"
+          value: "智能科学与技术",
+          label: "智能科学与技术"
         },
         {
-          value: "计算机",
-          label: "计算机"
+          value: "计算机科学与技术",
+          label: "计算机科学与技术"
         },
         {
           value: "软件工程",
@@ -139,6 +135,16 @@ export default {
   },
   methods: {
     submitForm(formName) {
+      var stringtime = this.time.toLocaleTimeString();
+      var mtime = stringtime.split(":")[1];
+      console.log(mtime);
+      var stime = stringtime.split(":")[2];
+      console.log(stime);
+      if (mtime == "30" || mtime == "00" || stime == "00");
+      else {
+        alert("您选的时间不符合要求，请输入未来日期，时间必须按照课程预约");
+        return;
+      }
       var data = {
         tid: this.tid,
         name: this.name,

@@ -52,7 +52,7 @@ export default new Router({
           component: SearchLab
         },
         {
-          path: '/token',
+          path: '/student/token',
           component: Token
         }    
       ]
@@ -84,7 +84,7 @@ export default new Router({
           component: SearchALLmark
         },
         {
-          path: '/token',
+          path: '/teacher/token',
           component: Token
         }    
       ]

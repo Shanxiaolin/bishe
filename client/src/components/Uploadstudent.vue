@@ -23,7 +23,9 @@
 var elsxname = [];
 var elsxid = [];
 var elsxtoken = [];
- 
+var elsxsubject = [];
+var elsxclass = [];
+var elsxgrade = [];
 export default {
   data() {
     return {
@@ -66,7 +68,7 @@ export default {
       this.fileTemp = null;
     },
     importfxx() {
-      console.log(1)
+      
       var obj = this.fileTemp
       let _this = this;
       // 通过DOM取文件数据
@@ -106,15 +108,23 @@ export default {
             let eid = {};
             let etoken = {};
             let ename = {};
+            let esubject = {};
+            let eclass = {};
+            let egrade = {};
             ename.name = v["NAME"]; //IP是表的标题
             eid.id = v["ID"];
-            
+            esubject.subject = v["SUBJECT"]
             etoken.token = v["TOKEN"];
+            egrade.grade = v["GRADE"]
+            eclass.class = v["CLASS"]
             elsxid.push(eid);
             elsxname.push(ename);
             elsxtoken.push(etoken);
+            elsxgrade.push(egrade);
+            elsxclass.push(eclass)
+            elsxsubject.push(esubject)
           });
-            _this.toserver(elsxid, elsxname, elsxtoken);
+            _this.toserver(elsxid, elsxname, elsxtoken,elsxsubject,elsxclass,elsxgrade);
         };
         reader.readAsArrayBuffer(f);
       };
@@ -125,12 +135,14 @@ export default {
       }
     },
     // 上传内容到后台
-    toserver(elsxid, elsxname, elsxtoken) {
-      console.log(2)
+    toserver(elsxid, elsxname, elsxtoken,elsxsubject,elsxclass,elsxgrade) {
       var data = {
         id: elsxid,
         name: elsxname,
-        token: elsxtoken
+        token: elsxtoken,
+        subject:elsxsubject,
+        sclass:elsxclass,
+        sgrade:elsxgrade
       };
       this.$axios({
         url: "http://localhost:3000/admin/upstudent",
@@ -142,7 +154,6 @@ export default {
         }
       })
         .then(res => {
-          console.log(res)
           if (res.data == 0) {
             alert("上传成功");
           } else alert("上传失败");

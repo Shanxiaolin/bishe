@@ -66,7 +66,7 @@ export default {
       this.fileTemp = null;
     },
     importfxx() {
-      console.log(1)
+      
       var obj = this.fileTemp
       let _this = this;
       // 通过DOM取文件数据
@@ -126,7 +126,6 @@ export default {
     },
     // 上传内容到后台
     toserver(elsxid, elsxname, elsxtoken) {
-      console.log(2)
       var data = {
         id: elsxid,
         name: elsxname,
@@ -142,7 +141,6 @@ export default {
         }
       })
         .then(res => {
-          console.log(res)
           if (res.data == 0) {
             alert("上传成功");
           } else alert("上传失败");
