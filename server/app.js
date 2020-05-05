@@ -14,7 +14,7 @@ var bodyParser = require('body-parser')
 
 var app = express();
 
-var url="http://localhost:8081"
+var url="http://localhost:8081,http://121.199.25.244"
 
 // 设置跨域访问
 app.all('*', function (req, response, next) {
