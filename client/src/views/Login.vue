@@ -20,7 +20,7 @@
         <br />
         <el-button :class="{btn:isbtn}" @click="login()">登录</el-button>
         <a
-          href="http://192.168.0.107:3001/forgetpwd"
+          href="http://localhost:8081/forgetpwd"
           style="position:absolute;bottom:2px;right:10px;text-decoration:none"
         >忘记密码</a>
       </el-card>
@@ -96,25 +96,26 @@ export default {
 }
 .in {
   margin-bottom: 5px;
-  width: 300px;
+  width: 70%;
 }
 .btn {
   margin-top: 5px;
   background-color: #86ce2f !important;
-  width: 300px;
+  width: 70%;
 }
 #father {
-  width: 618px;
-  height: 309px;
+  width: 40%;
+  height: 60%;
   background-image: url("../assets/yizhangdui.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 .bac {
-  width: 616.5px;
-  height: 307.5px;
+  width: 100% ;
+  height: 100%;
   background-color: #ffffff;
   opacity: 0.85;
   position: relative;
 }
+
 </style>
