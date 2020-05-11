@@ -37,20 +37,19 @@ export default {
         course: temp[3]
       };
 
-      this.$axios.get("http://192.168.0.107:3001/worktest/id?id="+this.id)
+      this.$axios.get("http://121.199.25.244:3001/worktest/id?id="+this.id)
         .then(res => {
           if (res != 1) {
             //得先遍历一下res否则会报length不是属性错误
-            console.log(res);
-            console.log(res.data);
-            console.log(res.data.response);
-            console.log(res.data.response.length);
-            reqtemp = res.data.response;
-            for (let i = 0; i < reqtemp.length; i++) {
+            let a = res;    
+            let b = res.data;       
+            let reqtemp = res.data.response;
+            let len = res.data.response.length;
+            for (let i = 0; i < len; i++) {
               str =
                 "作业得分:" + reqtemp[i]["w-mark"]  +"课程:" + reqtemp[i]["s-course"] + "   反馈:" + reqtemp[i]["w-response"];
               _this.resmessage[i] = str
-              console.log(_this.resmessage)
+           
             }
             _this.check=2
           } else alert("查询不到此信息");

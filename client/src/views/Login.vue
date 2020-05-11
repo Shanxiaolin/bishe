@@ -3,24 +3,24 @@
     <div id="father">
       <el-card class="box-card" :class="{bac:havebac}">
         <div slot="header" class="clearfix">
-          <span style="font-size:26px;font-weight:400">登录</span>
+          <span class="headerfsize">登录</span>
         </div>
-        <el-input :class="{in:true}" placeholder="账号" v-model="id" clearable></el-input>
-        <el-input :class="{in:true}" placeholder="密码" show-password v-model="pwd"></el-input>
+        <el-input :class="{in:true}" class="allheight fsize" placeholder="账号" v-model="id" clearable></el-input>
+        <el-input :class="{in:true}" class="allheight fsize" placeholder="密码" show-password v-model="pwd"></el-input>
         <br />
-        <label style="margin-right:20px">
+        <label   class="fsize lmargin ">
           <input type="radio" name="type" value="1" v-model="type" />管理员
         </label>
-        <label style="margin-right:20px">
+        <label   class="fsize lmargin">
           <input type="radio" name="type" value="2" v-model="type" />教师
         </label>
-        <label style="margin-right:20px">
+        <label   class="fsize lmargin">
           <input type="radio" name="type" value="3" v-model="type" />学生
         </label>
         <br />
-        <el-button :class="{btn:isbtn}" @click="login()">登录</el-button>
+        <el-button :class="{btn:isbtn}" class="allheight fsize" @click="login()">登录</el-button>
         <a
-          href="http://localhost:8081/forgetpwd"
+          href="http://121.199.25.244/forgetpwd" class="fsize"
           style="position:absolute;bottom:2px;right:10px;text-decoration:none"
         >忘记密码</a>
       </el-card>
@@ -31,7 +31,7 @@
 
 
 <script>
-import vue from 'vue'
+
  
 // 局部注册
 export default {
@@ -41,7 +41,7 @@ export default {
       window.sessionStorage.userid=this.id
       this.$axios
         .get(
-          "http://192.168.0.107:3001/login?id=" +
+          "http://121.199.25.244:3001/login?id=" +
             this.id +
             "&password=" +
             this.pwd +
@@ -87,6 +87,7 @@ export default {
 <style scoped>
 #app {
   height: 506px;
+  width:100%;
   text-align: center;
   color: #2c3e50;
   padding-top: 200px;
@@ -100,7 +101,7 @@ export default {
 }
 .btn {
   margin-top: 5px;
-  background-color: #86ce2f !important;
+  background-color: #86ce2f ;
   width: 70%;
 }
 #father {
@@ -109,6 +110,7 @@ export default {
   background-image: url("../assets/yizhangdui.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
+  border:none
 }
 .bac {
   width: 100% ;
@@ -117,5 +119,43 @@ export default {
   opacity: 0.85;
   position: relative;
 }
+.lmargin{
+  margin-right:10px;
+}
+.headerfsize {
+  font-size: 22px;
+  font-weight: 400;
+}
+.el-card__header {
+  border:none;
+  padding:10px 18px
+}
+.el-card{
+  border:none;
+}
+ .el-input__inner {
+   line-height:40px;
+   height:40px;
+ }  
+ @media screen and (max-width: 768px) {
+   #father {
+     width:80%;
+   }
+   .lmargin{
+     margin-right:10px;
+   }
+   .fsize{
+     font-size:12px;
+   }
+   .headerfsize {
+    font-size: 18px;
+    font-weight: 200;
+  }
+   .el-input__inner {
+   line-height:32px;
+   height:36px;
+ }  
+ 
+ }
 
 </style>

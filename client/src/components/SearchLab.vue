@@ -38,7 +38,7 @@ export default {
       };
 
       this.$axios({
-        url: "http://192.168.0.107:3001/lab/scgc",
+        url: "http://121.199.25.244:3001/lab/scgc",
         method: "post",
         data: data,
         headers: {
@@ -49,14 +49,15 @@ export default {
         .then(res => {
           if (res != 1) {
             //得先遍历一下res否则会报length不是属性错误
-            let a = res;
-            let b = res.data;
-            reqtemp = res.data.response;
-            for (let i = 0; i < reqtemp.length; i++) {
+             let a = res;    
+            let b = res.data;       
+            let reqtemp = res.data.response;
+            let len = res.data.response.length;
+            for (let i = 0; i < len; i++) {
               str =
                 "实验室:" + reqtemp[i]["l-id"] + "时间:" + reqtemp[i]["l-time"];
               _this.resmessage[i] = str
-              console.log(_this.resmessage)
+            
             }
             _this.check=2
           } else alert("查询不到此信息");

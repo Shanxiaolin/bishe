@@ -4,7 +4,7 @@
       <span  class="span">修改密码</span>
     </div>
     <el-input :class="{in:true}" placeholder="账号" v-model="id" clearable></el-input>
-    <el-input :class="{in:true}" placeholder="密码" show-password v-model="pwd"></el-input>
+    <el-input :class="{in:true}" placeholder="新的密码" show-password v-model="pwd"></el-input>
     <br/>
     <label class="label-style">
       <input type="radio" name="type" value="2" v-model="type" />教师
@@ -28,7 +28,7 @@ export default {
       var data = { id: this.id, password: this.pwd };
       if (this.type == 2) {
         this.$axios({
-          url: "http://192.168.0.107:3001/teacher/pwd",
+          url: "http://121.199.25.244:3001/teacher/pwd",
           method: "post",
           data: data,
           headers: {
@@ -38,8 +38,7 @@ export default {
         })
           .then(res => {
             if (res.data == 0) {
-              alert("修改成功");
-              this.$router.push("/teacher");
+              alert("修改成功"); 
             } else alert("修改失败");
           })
           .catch(err => {
@@ -47,7 +46,7 @@ export default {
           });
       } else {
         this.$axios({
-          url: "http://192.168.0.107:3001/student/pwd",
+          url: "http://121.199.25.244:3001/student/pwd",
           method: "post",
           data: data,
           headers: {
@@ -58,7 +57,6 @@ export default {
           .then(res => {
             if (res.data == 0) {
               alert("修改成功");
-              this.$router.push("/stuedent");
             } else alert("修改失败");
           })
           .catch(err => {

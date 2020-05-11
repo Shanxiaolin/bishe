@@ -163,25 +163,25 @@ body > .el-container {
     height:575px;
   }
   .el-menu-vertical-demo {
-    height:574px;
+    height:560px;
   }
   .el-menu-item {
-    font-size: 0.5rem;
+    font-size: 0.4rem;
   }
   .left-el-menu-item {
-    font-size: 1rem;
+    font-size: 0.75rem;
   }
   .right-el-menu-item {
-    font-size: 0.5rem;
+    font-size: 0.4rem;
   }
   .icon-size {
-    font-size: 0.6rem;
+    font-size: 0.5rem;
   }
   .span {
     font-size: 1rem;
   }
   .label-style {
-    font-size: 0.5rem;
+    font-size: 0.4rem;
   }
   .card {
     width: 100%;

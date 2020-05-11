@@ -23,14 +23,6 @@
             text-color="#fff"
             active-text-color="#ffd04b"
           >
-            <el-menu-item index="/admin/updatepwd">
-              <i class="icon-size el-icon-edit"></i>
-              <span slot="title">修改密码</span>
-            </el-menu-item>
-            <el-menu-item index="/admin/token">
-              <i class="icon-size el-icon-s-promotion"></i>
-              <span slot="title">修改TOKEN</span>
-            </el-menu-item>
             <el-menu-item index="/admin/upteacher">
               <i class="icon-size el-icon-search"></i>
               <span slot="title">导入教师信息</span>
@@ -159,22 +151,22 @@ body > .el-container {
     height:574px;
   }
   .el-menu-item {
-    font-size: 0.5rem;
+    font-size: 0.4rem;
   }
   .left-el-menu-item {
-    font-size: 1rem;
+    font-size: 0.75rem;
   }
   .right-el-menu-item {
-    font-size: 0.5rem;
+    font-size: 0.4rem;
   }
   .icon-size {
-    font-size: 0.6rem;
+    font-size: 0.5rem;
   }
   .span {
     font-size: 1rem;
   }
   .label-style {
-    font-size: 0.5rem;
+    font-size: 0.4rem;
   }
   .card {
     width: 100%;

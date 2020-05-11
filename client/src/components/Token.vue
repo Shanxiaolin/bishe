@@ -4,7 +4,7 @@
       <span class="span">修改TOKEN</span>
     </div>
     <el-input :class="{in:true}" placeholder="账号" v-model="id" clearable></el-input>
-    <el-input :class="{in:true}" placeholder="密码" show-password v-model="pwd"></el-input>
+    <el-input :class="{in:true}" placeholder="新的token" show-password v-model="token"></el-input>
     <br />
     <label class="label-style">
       <input type="radio" name="type" value="1" v-model="type" />管理员
@@ -27,11 +27,11 @@ export default {
 
   methods: {
     login() {
-      var data = { id: this.id, password: this.pwd };
-      console.log(typeof data);
+      var data = { id: this.id, token: this.token };
+     
       if (this.type == 2) {
         this.$axios({
-          url: "http://192.168.0.107:3001/teacher/token",
+          url: "http://121.199.25.244:3001/teacher/token",
           method: "post",
           data: data,
           headers: {
@@ -49,7 +49,7 @@ export default {
           });
       } else {
         this.$axios({
-          url: "http://192.168.0.107:3001/student/token",
+          url: "http://121.199.25.244:3001/student/token",
           method: "post",
           data: data,
           headers: {
@@ -73,7 +73,7 @@ export default {
       isbtn: true,
       iscard: false,
       id: "",
-      pwd: "",
+      token: "",
       type: ""
     };
   }

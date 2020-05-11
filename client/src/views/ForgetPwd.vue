@@ -3,39 +3,36 @@
     <div id="father">
       <el-card class="box-card" :class="{bac:havebac}">
         <div slot="header" class="clearfix">
-          <span style="font-size:26px;font-weight:400">忘记密码修改密码</span>
+          <span class="headerfsize">忘记密码修改密码</span>
         </div>
-        <el-input :class="{in:true}" placeholder="账号" v-model="id" clearable></el-input>
-        <el-input :class="{in:true}" placeholder="验证码即TOKEN" v-model="token" clearable></el-input>
-        <el-input :class="{in:true}" placeholder="密码" show-password v-model="pwd"></el-input>
+        <el-input :class="{in:true}"  class=" fsize" placeholder="账号" v-model="id" clearable></el-input>
+        <el-input :class="{in:true}"  class=" fsize" placeholder="验证码即TOKEN" v-model="token" clearable></el-input>
+        <el-input :class="{in:true}"  class=" fsize" placeholder="密码" show-password v-model="pwd"></el-input>
         <br />
-        <label style="margin-right:20px">
+        <label class="fsize lmargin">
           <input type="radio" name="type" value="2" v-model="type" />教师
         </label>
-        <label style="margin-right:20px">
+        <label class="fsize lmargin">
           <input type="radio" name="type" value="3" v-model="type" />学生
         </label>
         <br />
-        <el-button :class="{btn:isbtn}" @click="login()">确认修改</el-button>
+        <el-button :class="{btn:isbtn}" class="allheight fsize" @click="login()">确认修改</el-button>
       </el-card>
     </div>
-    <router-view/> 
+    <router-view />
   </div>
 </template>
 <script>
- 
-
 // 局部注册
 export default {
   name: "ForgetPwd",
-  components: {
-  },
+  components: {},
   methods: {
     login() {
       var data = { id: this.id, password: this.pwd, token: this.token };
       if (this.type == 2) {
         this.$axios({
-          url: "http://192.168.0.107:3001/teacher/forgetpwd",
+          url: "http://121.199.25.244:3001/teacher/forgetpwd",
           method: "post",
           data: data,
           headers: {
@@ -53,7 +50,7 @@ export default {
           });
       } else {
         this.$axios({
-          url: "http://192.168.0.107:3001/student/forgetpwd",
+          url: "http://121.199.25.244:3001/student/forgetpwd",
           method: "post",
           data: data,
           headers: {
@@ -64,7 +61,7 @@ export default {
           .then(res => {
             if (res.data == 0) {
               alert("修改成功");
-              this.$router.push('/')
+              this.$router.push("/");
             } else alert("修改失败");
           })
           .catch(err => {
@@ -75,6 +72,7 @@ export default {
   },
   data() {
     return {
+      havebac:true,
       isbtn: true,
       iscard: true,
       id: "",
@@ -88,7 +86,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
- #app {
+#app {
   height: 506px;
   text-align: center;
   color: #2c3e50;
@@ -103,7 +101,7 @@ export default {
 }
 .btn {
   margin-top: 5px;
-  background-color: #86ce2f !important;
+  background-color: #86ce2f;
   width: 70%;
 }
 #father {
@@ -112,13 +110,54 @@ export default {
   background-image: url("../assets/yizhangdui.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
+  border:none;
 }
 .bac {
-  width: 100% ;
+  width: 100%;
   height: 100%;
   background-color: #ffffff;
   opacity: 0.85;
   position: relative;
 }
+.lmargin {
+  margin-right: 10px;
+}
+.headerfsize {
+  font-size: 22px;
+  font-weight: 400;
+}
 
+  .el-card__header {
+  border:none;
+  padding:10px 18px
+}
+.el-card{
+  border:none;
+}
+ .el-input__inner {
+   line-height:40px;
+   height:40px;
+ }  
+ 
+@media screen and (max-width: 768px) {
+  #father {
+    width: 80%;
+  }
+  .lmargin {
+    margin-right: 10px;
+  }
+  .fsize {
+    font-size: 12px;
+  }
+  .headerfsize {
+    font-size: 18px;
+    font-weight:200;
+  }
+ .el-input__inner {
+   line-height:32px;
+   height:36px;
+ }  
+ 
+}
+ 
 </style>

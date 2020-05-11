@@ -52,14 +52,15 @@ export default {
   methods: {
     searchwork() {
       var _this=this
-      this.$axios.get("http://192.168.0.107:3001/lab/id?id="+this.id)
+      this.$axios.get("http://121.199.25.244:3001/lab/id?id="+this.id)
         .then(res => {
           if (res != 1) {
             //得先遍历一下res否则会报length不是属性错误
-            let a = res;
-            let b = res.data;
-            reqtemp = res.data.response;
-            for (let i = 0; i < reqtemp.length; i++) {
+            let a = res;    
+            let b = res.data;       
+            let reqtemp = res.data.response;
+            let len = res.data.response.length;
+            for (let i = 0; i < len; i++) {
                 let obj = {}
                 _this.tableobject["lid"] = reqtemp[i]["l-id"];
                 var temptime = reqtemp[i]["l-time"];

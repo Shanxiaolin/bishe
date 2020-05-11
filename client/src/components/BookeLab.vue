@@ -137,9 +137,7 @@ export default {
     submitForm(formName) {
       var stringtime = this.time.toLocaleTimeString();
       var mtime = stringtime.split(":")[1];
-      console.log(mtime);
       var stime = stringtime.split(":")[2];
-      console.log(stime);
       if (mtime == "30" || mtime == "00" || stime == "00");
       else {
         alert("您选的时间不符合要求，请输入未来日期，时间必须按照课程预约");
@@ -156,7 +154,7 @@ export default {
         course: this.course
       };
       this.$axios({
-        url: "http://192.168.0.107:3001/lab/reservation",
+        url: "http://121.199.25.244:3001/lab/reservation",
         method: "post",
         data: data,
         headers: {
