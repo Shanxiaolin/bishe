@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Worktest = sequelize.define('Worktest', {
-    ["s-id"]: DataTypes.INTEGER,
+    ["s-id"]: DataTypes.BIGINT,
     ["s-subject"]: DataTypes.STRING,
     ["s-course"]:DataTypes.STRING,
     ["s-grade"]: DataTypes.INTEGER,

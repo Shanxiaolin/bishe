@@ -4,14 +4,14 @@ module.exports = {
     return queryInterface.createTable('Admins', {
       ["a-id"]: { 
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       }, 
       ["a-pwd"]:{
         type: Sequelize.STRING,
         allowNull: false
       },
       ["a-token"]:{
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
       ["a-type"]: {
         allowNull: false,

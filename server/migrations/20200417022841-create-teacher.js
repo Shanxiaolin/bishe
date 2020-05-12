@@ -9,14 +9,14 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       ["t-id"]: { 
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       }, 
       ["t-pwd"]:{
         type: Sequelize.STRING,
         allowNull: false
       },
       ["t-token"]:{
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
       ["t-type"]: {
         allowNull: false,

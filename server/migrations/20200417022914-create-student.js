@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       ["s-id"]: { 
-        type: Sequelize.INTEGER,
+        type: Sequelize.BIGINT,
         allowNull: false
       }, 
       ["s-pwd"]:{
@@ -17,7 +17,7 @@ module.exports = {
         allowNull: false
       },
       ["s-token"]:{
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
       ["s-type"]: {
         allowNull: false,

@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.DATE
       },
       ["t-id"]: {
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
       ["t-name"]: {
         type: Sequelize.STRING

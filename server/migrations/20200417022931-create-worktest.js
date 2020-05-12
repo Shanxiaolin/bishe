@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       ["s-id"]: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BIGINT,
         allowNull: false
       },
       ["s-class"]:{

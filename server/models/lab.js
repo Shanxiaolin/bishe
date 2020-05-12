@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Lab = sequelize.define('Lab', {
     ["l-id"]:DataTypes.STRING,
     ["l-time"] :  DataTypes.DATE,
-    ["t-id"]:     DataTypes.INTEGER,
+    ["t-id"]:     DataTypes.BIGINT,
     ["t-name"]:   DataTypes.STRING,
     ["s-subject"]:DataTypes.STRING,
     ["s-course"]:DataTypes.STRING,
