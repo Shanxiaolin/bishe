@@ -52,7 +52,7 @@ export default {
   methods: {
     searchwork() {
       var _this=this
-      this.$axios.get("http://121.199.25.244:3001/lab/id?id="+this.id)
+      this.$axios.get("http://localhost:3000/lab/id?id="+this.id)
         .then(res => {
           if (res != 1) {
             //得先遍历一下res否则会报length不是属性错误

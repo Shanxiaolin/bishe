@@ -31,7 +31,7 @@ export default {
      
       if (this.type == 2) {
         this.$axios({
-          url: "http://121.199.25.244:3001/teacher/token",
+          url: "http://localhost:3000/teacher/token",
           method: "post",
           data: data,
           headers: {
@@ -49,7 +49,7 @@ export default {
           });
       } else {
         this.$axios({
-          url: "http://121.199.25.244:3001/student/token",
+          url: "http://localhost:3000/student/token",
           method: "post",
           data: data,
           headers: {

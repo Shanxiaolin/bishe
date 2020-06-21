@@ -28,7 +28,7 @@ export default {
       var data = { id: this.id, password: this.pwd };
       if (this.type == 2) {
         this.$axios({
-          url: "http://121.199.25.244:3001/teacher/pwd",
+          url: "http://localhost:3000/teacher/pwd",
           method: "post",
           data: data,
           headers: {
@@ -46,7 +46,7 @@ export default {
           });
       } else {
         this.$axios({
-          url: "http://121.199.25.244:3001/student/pwd",
+          url: "http://localhost:3000/student/pwd",
           method: "post",
           data: data,
           headers: {

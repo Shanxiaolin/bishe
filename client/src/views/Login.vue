@@ -5,8 +5,8 @@
         <div slot="header" class="clearfix">
           <span class="headerfsize">登录</span>
         </div>
-        <el-input :class="{in:true}" class="allheight fsize" placeholder="账号" v-model="id" clearable></el-input>
-        <el-input :class="{in:true}" class="allheight fsize" placeholder="密码" show-password v-model="pwd"></el-input>
+        <el-input :class="{in:true}" class="allheight fsize" placeholder="账号" v-model="id" clearable ></el-input>
+        <el-input :class="{in:true}" class="allheight fsize" placeholder="密码" show-password v-model="pwd" ></el-input>
         <br />
         <label   class="fsize lmargin ">
           <input type="radio" name="type" value="1" v-model="type" />管理员
@@ -20,7 +20,7 @@
         <br />
         <el-button :class="{btn:isbtn}" class="allheight fsize" @click="login()">登录</el-button>
         <a
-          href="http://121.199.25.244/forgetpwd" class="fsize"
+          href="http://localhost/forgetpwd" class="fsize"
           style="position:absolute;bottom:2px;right:10px;text-decoration:none"
         >忘记密码</a>
       </el-card>
@@ -41,7 +41,7 @@ export default {
       window.sessionStorage.userid=this.id
       this.$axios
         .get(
-          "http://121.199.25.244:3001/login?id=" +
+          "http://localhost:3000/login?id=" +
             this.id +
             "&password=" +
             this.pwd +

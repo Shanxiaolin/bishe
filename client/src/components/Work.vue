@@ -100,7 +100,7 @@ export default {
         responses: this.response
       };
       this.$axios({
-        url: "http://121.199.25.244:3001/worktest/mark",
+        url: "http://localhost:3000/worktest/mark",
         method: "post",
         data: data,
         headers: {
@@ -127,7 +127,7 @@ export default {
         course: temp[3]
       };
       this.$axios({
-        url: "http://121.199.25.244:3001/worktest/scgc",
+        url: "http://localhost:3000/worktest/scgc",
         method: "post",
         data: data,
         headers: {

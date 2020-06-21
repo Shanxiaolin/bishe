@@ -154,7 +154,7 @@ export default {
         course: this.course
       };
       this.$axios({
-        url: "http://121.199.25.244:3001/lab/reservation",
+        url: "http://localhost:3000/lab/reservation",
         method: "post",
         data: data,
         headers: {

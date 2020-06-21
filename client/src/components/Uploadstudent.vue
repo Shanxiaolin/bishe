@@ -145,7 +145,7 @@ export default {
         sgrade:elsxgrade
       };
       this.$axios({
-        url: "http://121.199.25.244:3001/admin/upstudent",
+        url: "http://localhost:3000/admin/upstudent",
         method: "post",
         data: data,
         headers: {

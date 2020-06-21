@@ -37,7 +37,7 @@ export default {
         course: temp[3]
       };
 
-      this.$axios.get("http://121.199.25.244:3001/worktest/id?id="+this.id)
+      this.$axios.get("http://localhost:3000/worktest/id?id="+this.id)
         .then(res => {
           if (res != 1) {
             //得先遍历一下res否则会报length不是属性错误
